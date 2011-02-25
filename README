@@ -9,7 +9,6 @@ Available commands:
 	app:cron:upgrade  - Updates cron to newest version
 
 Cron templates need to return an with the following structure:
-
 $new_lines = array
 (
 	'group' => array
