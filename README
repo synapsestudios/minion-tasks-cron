@@ -8,4 +8,18 @@ Available commands:
 	app:cron:generate - Generates new cron upgrade template
 	app:cron:upgrade  - Updates cron to newest version
 
+Cron templates need to return an with the following structure:
+
+$new_lines = array
+(
+	'group' => array
+	(
+		'task-name-no-spaces' -> array
+		(
+			'command' => '* * * * * echo "new cron command"',
+			'description' => 'Optional description',
+		),
+	),
+);
+
 Author: Andrew Reida <andrew@synapsestudios.com>
