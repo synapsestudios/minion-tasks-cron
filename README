@@ -1,0 +1,11 @@
+The Upgrade task compares the current version of the cron with the target
+version and then executes the necessary commands to bring the database up to
+date
+
+Available commands:
+	app:cron          - Runs app:cron:upgrade
+	app:cron --help   - Displays this help text
+	app:cron:generate - Generates new cron upgrade template
+	app:cron:upgrade  - Updates cron to newest version
+
+Author: Andrew Reida <andrew@synapsestudios.com>
