@@ -4,13 +4,13 @@ class Model_Cron_Version {
 
 	public static function create_table()
 	{
-		$query = DB::query(Database::SELECT, "SHOW TABLES like 'cron_versions'")
+		$query = DB::query(Database::SELECT, "SHOW TABLES like 'minion_crons'")
 			->execute();
 
 		if ( ! count($query))
 		{
 			$sql = '
-				CREATE  TABLE IF NOT EXISTS `cron_versions`
+				CREATE  TABLE IF NOT EXISTS `minion_crons`
 				(
 					`id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
 					`timestamp` varchar(14) NOT NULL,
@@ -22,7 +22,7 @@ class Model_Cron_Version {
 			DB::query(NULL, $sql)
 				->execute();
 
-			DB::insert('cron_versions', array('timestamp'))
+			DB::insert('minion_crons', array('timestamp'))
 				->values(array(0))
 				->execute();
 		}
@@ -31,7 +31,7 @@ class Model_Cron_Version {
 	public static function get_current()
 	{
 		return DB::select('timestamp')
-			->from('cron_versions')
+			->from('minion_crons')
 			->limit(1)
 			->execute()
 			->get('timestamp');
@@ -39,7 +39,7 @@ class Model_Cron_Version {
 
 	public static function set_current($timestamp)
 	{
-		DB::update('cron_versions')
+		DB::update('minion_crons')
 			->set(array('timestamp' => $timestamp))
 			->execute();
 	}
