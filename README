@@ -14,12 +14,23 @@ $new_lines = array
 (
 	'group' => array
 	(
-		'task-name-no-spaces' -> array
+		'task-name-no-spaces' => array
 		(
-			'command' => '* * * * * echo "new cron command"',
+			'command'     => '* * * * * echo "new cron command"',
 			'description' => 'Optional description',
 		),
 	),
 );
+
+To remove a line from the cron, generate a new template and return the following array
+$lines_to_remove = array
+(
+	'group' => array
+	(
+		'task-to-remove' => NULL,
+	),
+);
+
+Future versions will implement downgrade and incremental step functionality.
 
 Author: Andrew Reida <andrew@synapsestudios.com>
