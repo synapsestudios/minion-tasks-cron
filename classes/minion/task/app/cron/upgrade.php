@@ -9,6 +9,8 @@ class Minion_Task_App_Cron_Upgrade extends Minion_Task {
 	 */
 	public function execute(array $config)
 	{
+		Model_Cron_Version::create_table();
+
 		$upgrades = array();
 		$files = Kohana::list_files('crons');
 		$current = Model_Cron_Version::get_current();
